@@ -1,1 +1,1 @@
-worker: python multi_process.p
+worker: python multi_process.py
