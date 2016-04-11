@@ -1,7 +1,7 @@
 S: KarmaForFree
-0
-3
+1
+2
 S: karma
 2
-2
-Day: 10
+7
+Day: 11
