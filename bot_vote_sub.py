@@ -61,12 +61,13 @@ class SubVoteBot(Bot_Instance):
             overall_link += Bot_Instance.link_uv_count[i]
             overall_comment += Bot_Instance.comment_uv_count[i]
 
-        reply_str = "##Karma provided today:\n\n"
+        reply_str = "Upvoted link post\n\n"
+        reply_str += "##Karma given today:\n\n"
         reply_str += "#####" + subname + ":\n\n"
         reply_str += ">Link:`" + link_uv_str + "`" + " Comment:`" + comment_uv_str + "`\n\n"
         reply_str += "#####Overall:\n\n"
         reply_str += ">Link:`" + str(overall_link) + "`" + " Comment:`" + str(overall_comment) + "`\n\n"
-        reply_str += "***\n\n^An ^upvote ^a ^day ^keeps ^the ^mods ^away"
+        #reply_str += "***\n\n^An ^upvote ^a ^day ^keeps ^the ^mods ^away"
 
         comment.add_comment(reply_str)
 
@@ -78,7 +79,7 @@ class SubVoteBot(Bot_Instance):
         #Call super----------------------------//
         super(SubVoteBot, self).run()
 
-        sub_stream = praw.helpers.submission_stream(self.r, Bot_Instance.subs_string)
+        sub_stream = praw.helpers.submission_stream(self.r, Bot_Instance.subs_string, 10)
 
         #loop thru submissions from earliest to latest--------------------------------//
         for c in sub_stream:
@@ -107,7 +108,7 @@ class SubVoteBot(Bot_Instance):
             if('https://www.reddit.com/r/' not in c.url):
 
                 subname = Perma_to_subreddit(c.permalink)
-                print("Sub Text: %s" %c.url)
+                print("Sub Text: %s" %c.permalink)
 
                 c.upvote()
                 Bot_Instance.link_uv_count[subname] += 1 #upvoted a link
