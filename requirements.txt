@@ -7,7 +7,7 @@ praw==3.4.0
 praw-oauth2util==0.3.4
 proxy.py==0.2
 pyd==0.9.8
-pywin32==220
+pypiwin32==220
 requests==2.9.1
 six==1.10.0
 update-checker==0.11
