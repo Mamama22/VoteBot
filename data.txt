@@ -1,7 +1,16 @@
-S: KarmaForFree
-1
+S: fansOfHahahahut3
+0
+0
+S: fansOfHahahahut4
+0
+0
+S: FreeKarma
+2
 2
 S: karma
-2
-7
-Day: 11
+0
+0
+S: KarmaForFree
+0
+1
+Day: 12

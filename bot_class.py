@@ -146,7 +146,7 @@ class Bot_Instance (threading.Thread):
         fo = open(DATA_TXT, "r")
 
         #pass contents to a string
-        str = fo.read(100)
+        str = fo.read(1000)
 
         #if no data yet, go out-----------------------//
         if(len(str) < 2):

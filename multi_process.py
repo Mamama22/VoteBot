@@ -35,9 +35,9 @@ def Main_Func():
     #fansOfHahahahut3
     #FreeKarma
     #create multiple instances-------------//
-    ua = '/u/MarthaKarma testing only'
+    ua = '/u/DohADeerAFemaleDeer testing only'
 
-    Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4') #init once-------//
+    Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4+FreeKarma+karma+KarmaForFree') #init once-------//
     bot_list.append(ReplyBot(1, ua, handler))
     bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
 
