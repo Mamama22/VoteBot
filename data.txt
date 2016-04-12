@@ -5,12 +5,12 @@ S: fansOfHahahahut4
 0
 0
 S: FreeKarma
-2
-2
+0
+0
 S: karma
 0
 0
 S: KarmaForFree
 0
-1
-Day: 12
+0
+Day: 13

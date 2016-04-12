@@ -6,6 +6,7 @@ import praw
 import time
 from bot_class import Bot_Instance
 from bot_class import Perma_to_subreddit
+from random import randint
 
 class SubVoteBot(Bot_Instance):
 
@@ -72,7 +73,19 @@ class SubVoteBot(Bot_Instance):
             reply_str += ">Link:`" + str(overall_link) + "`" + " Comment:`" + str(overall_comment) + "`\n\n"
             #reply_str += "***\n\n^An ^upvote ^a ^day ^keeps ^the ^mods ^away"
         else:
-            reply_str += "Upvoted you:)"
+
+            which_reply = randint(5)
+
+            if(which_reply == 0):
+                reply_str += "Upvoted you:)"
+            elif(which_reply == 1):
+                reply_str += "Upvoted"
+            elif(which_reply == 2):
+                reply_str += "here catch"
+            elif(which_reply == 3):
+                reply_str += "Donee"
+            elif(which_reply == 4):
+                reply_str += "Have an upvote:)"
 
         comment.add_comment(reply_str)
 

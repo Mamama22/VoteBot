@@ -9,6 +9,9 @@ Layman: can have multiple instance of same user. Multitask
 #MarthaKarma
 #lalaboy77
 
+#DaMaTaYaDaLa
+#lalaboy55
+
 FreeKarma sub no bots allowed
 archived post cannot vote/comment
 '''
@@ -35,7 +38,7 @@ def Main_Func():
     #fansOfHahahahut3
     #FreeKarma
     #create multiple instances-------------//
-    ua = '/u/DohADeerAFemaleDeer testing only'
+    ua = '/u/DaMaTaYaDaLa testing only'
 
     Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4+FreeKarma+karma+KarmaForFree') #init once-------//
     bot_list.append(ReplyBot(1, ua, handler))
