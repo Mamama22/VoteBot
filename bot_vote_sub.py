@@ -74,7 +74,7 @@ class SubVoteBot(Bot_Instance):
             #reply_str += "***\n\n^An ^upvote ^a ^day ^keeps ^the ^mods ^away"
         else:
 
-            which_reply = randint(5)
+            which_reply = randint(0,5)
 
             if(which_reply == 0):
                 reply_str += "Upvoted you:)"
