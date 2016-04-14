@@ -97,7 +97,7 @@ class SubVoteBot(Bot_Instance):
         #Call super----------------------------//
         super(SubVoteBot, self).run()
 
-        sub_stream = praw.helpers.submission_stream(self.r, Bot_Instance.subs_string, 20)
+        sub_stream = praw.helpers.submission_stream(self.r, Bot_Instance.subs_string, 1)
 
         #loop thru submissions from earliest to latest--------------------------------//
         for c in sub_stream:
@@ -135,7 +135,7 @@ class SubVoteBot(Bot_Instance):
                 self.Reply(subname, c)
 
                 #save and sleep for 2 secs-----------------------------------//
-                self.save_sub_time_and_data(c) #save latest submission time and data
+                #self.save_sub_time_and_data(c) #save latest submission time and data
                 time.sleep(2)
 
             else:

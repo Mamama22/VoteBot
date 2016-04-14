@@ -42,7 +42,7 @@ class ReplyBot(Bot_Instance):
         #Call super----------------------------//
         super(ReplyBot, self).run()
 
-        comment_stream = praw.helpers.comment_stream(self.r, Bot_Instance.subs_string, 10)
+        comment_stream = praw.helpers.comment_stream(self.r, Bot_Instance.subs_string, 1)
 
         for c in comment_stream:
 
@@ -99,7 +99,7 @@ class ReplyBot(Bot_Instance):
         fo.close()
 
         #save the latest data---------------------------//
-        Bot_Instance.CheckData()
+        #Bot_Instance.CheckData()
 
         time.sleep(2)
 

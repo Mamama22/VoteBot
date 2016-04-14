@@ -14,6 +14,10 @@ Layman: can have multiple instance of same user. Multitask
 
 FreeKarma sub no bots allowed
 archived post cannot vote/comment
+
+CHANGES MADE:
+-now not saving, only load
+-now
 '''
 
 import sys
@@ -40,7 +44,7 @@ def Main_Func():
     #create multiple instances-------------//
     ua = '/u/DaMaTaYaDaLa testing only'
 
-    Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4+FreeKarma+karma+KarmaForFree') #init once-------//
+    Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4') #init once-------//
     bot_list.append(ReplyBot(1, ua, handler))
     bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
 
