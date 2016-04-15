@@ -53,7 +53,7 @@ def Main_Func():
     #types of processes to run cocurrently------------------//
     #bot_list.append(ReplyBot(1, ua, handler))
     #bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
-    bot_list.append(NLettersBot(3, ua, handler, 8))
+    bot_list.append(NLettersBot(3, ua, handler, 7))
 
     for i in bot_list:
         try:
