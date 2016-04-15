@@ -147,7 +147,7 @@ class NLettersBot(Bot_Instance):
 
         #reply back if MORE than 10 minutes since last reply--------------------------------//
         # and time.time() - self.lastRepliedTime >= 600
-        if(len(List_of_words) > 0 and time.time() - self.lastRepliedTime >= 900):
+        if(len(List_of_words) > 0 and time.time() - self.lastRepliedTime >= 2700):
 
             #check to make sure is not from Serious sub-----------------------//
             sub_id = GetSubID_FromPerma(comment.permalink)
