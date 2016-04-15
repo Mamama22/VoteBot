@@ -12,6 +12,9 @@ Layman: can have multiple instance of same user. Multitask
 #DaMaTaYaDaLa
 #lalaboy55
 
+#ThisWordHas8Letters
+#lalaboy66
+
 FreeKarma sub no bots allowed
 archived post cannot vote/comment
 
@@ -21,6 +24,7 @@ CHANGES MADE:
 '''
 
 import sys
+from ThisWordHasNLetters import NLettersBot
 from bot_comment import ReplyBot
 from bot_vote_sub import  SubVoteBot
 from praw.handlers import MultiprocessHandler
@@ -44,20 +48,23 @@ def Main_Func():
     #create multiple instances-------------//
     ua = '/u/DaMaTaYaDaLa testing only'
 
-    Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4') #init once-------//
-    bot_list.append(ReplyBot(1, ua, handler))
-    bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
+    Bot_Instance.Init_Static('AskReddit') #init once static data-------//
 
-    try:
-        bot_list[0].start()
-        bot_list[1].start()
-    except:
-        print("Error: unable to start thread")
+    #types of processes to run cocurrently------------------//
+    #bot_list.append(ReplyBot(1, ua, handler))
+    #bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
+    bot_list.append(NLettersBot(3, ua, handler, 8))
+
+    for i in bot_list:
+        try:
+            i.start()
+        except:
+            print("Error: unable to start thread: %d" %i.threadID)
 
     #multi-thread loop-----------------------//
     while(True):
 
-        #if press end key---------------------------//
+        #if press end key (NOT GONNA WORK WITH BLOCKING FUNCTIONS)---------------------------//
         if(sys.stdin.read(1) == 'g'):
             print("---END THIS SHIT")
             for h in range(len(bot_list)):
