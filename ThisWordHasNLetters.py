@@ -66,7 +66,7 @@ class NLettersBot(Bot_Instance):
         self.latestTime = time.time()
 
         #for comparing last replied time-----//
-        self.lastRepliedTime = self.latestTime
+        self.lastRepliedTime = 0
 
         self.word_limit = 10 #only find up till 10 words
 
