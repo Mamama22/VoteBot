@@ -1,7 +1,4 @@
-S: fansOfHahahahut3
-0
-0
-S: fansOfHahahahut4
+S: AskReddit
 0
 0
 Day: 15

@@ -48,7 +48,7 @@ def Main_Func():
     #create multiple instances-------------//
     ua = '/u/ThisWordHas8Letters testing only'
 
-    Bot_Instance.Init_Static('AskReddit') #init once static data-------//
+    Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4') #init once static data-------//
 
     #types of processes to run cocurrently------------------//
     #bot_list.append(ReplyBot(1, ua, handler))

@@ -99,6 +99,8 @@ class NLettersBot(Bot_Instance):
     //=================================================================='''
     def Check_Condition(self, comment):
 
+        if(time.time() - self.lastRepliedTime >= 2700):
+            return False
         if(not comment.author): #if deleted
             return False
         if(comment.author == self.r.user): #if own comment
@@ -147,7 +149,7 @@ class NLettersBot(Bot_Instance):
 
         #reply back if MORE than 10 minutes since last reply--------------------------------//
         # and time.time() - self.lastRepliedTime >= 600
-        if(len(List_of_words) > 0 and time.time() - self.lastRepliedTime >= 2700):
+        if(len(List_of_words) > 0):
 
             #check to make sure is not from Serious sub-----------------------//
             sub_id = GetSubID_FromPerma(comment.permalink)
