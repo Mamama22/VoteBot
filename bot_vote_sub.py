@@ -1,5 +1,9 @@
 '''
 This bot upvotes LINK SUBMISSION ONLY (replies too)
+
+CHANGELOG:
+-all reading/saving removed (ctrl-f SKIP READING FROM FILE)
+-latest visit_time is START TIME, no more save last voted
 '''
 
 import praw
@@ -20,13 +24,13 @@ class SubVoteBot(Bot_Instance):
         super(SubVoteBot, self).__init__(threadID, user_agent, handler)
 
         #Variables---------------------//
-        self.latest_sub_visit_time = 0 #the last submission created time in previous visit
+        self.latest_sub_visit_time = time.time() #the last submission created time in previous visit
         self.latest_sub_ID = 0  #D of latest visited post (So we do not go to it again)
 
+        ''' SKIP READING FROM FILE
         #LATEST SUB VISIT TIME: load from save file----------------------//
         fo = open(latest_visit_time_txt, "r")
         full = fo.read(100).split('\n')
-
 
         #if not first time, get the last latest time-------------------------//
         self.latest_sub_visit_time = float(full[0])
@@ -35,6 +39,7 @@ class SubVoteBot(Bot_Instance):
 
         #Get the latest time form previous visit---------------------------------------//
         self.latest_visit_time_txt = latest_visit_time_txt
+        '''
 
     '''==================================================================//
     Check sub time if is skippable
@@ -71,7 +76,7 @@ class SubVoteBot(Bot_Instance):
             reply_str += ">Link:`" + link_uv_str + "`" + " Comment:`" + comment_uv_str + "`\n\n"
             reply_str += "#####Overall:\n\n"
             reply_str += ">Link:`" + str(overall_link) + "`" + " Comment:`" + str(overall_comment) + "`\n\n"
-            #reply_str += "***\n\n^An ^upvote ^a ^day ^keeps ^the ^mods ^away"
+            reply_str += "***\n\n^FUCK ^UR ^LAO ^MA"
         else:
 
             which_reply = randint(0,5)
@@ -110,7 +115,7 @@ class SubVoteBot(Bot_Instance):
 
             #submission ID check-------------------------------//
             if( self.Check_sub_time(c) == True):
-                print("---skipping....")
+                #print("---skipping....")
                 continue
 
             #if like b4... do not go in again------------------------//
@@ -119,14 +124,15 @@ class SubVoteBot(Bot_Instance):
             if(c.id == self.latest_sub_ID): #test ID check
                 continue
 
-            #reset data if end of day--------------------------//
-            Bot_Instance.CheckData()
 
             #print title--------------------------------------------//
             if('https://www.reddit.com/r/' not in c.url):
 
+                #reset data if end of day--------------------------//
+                Bot_Instance.CheckData()
+
                 subname = Perma_to_subreddit(c.permalink)
-                print("Sub Text: %s" %c.permalink)
+                #print("Sub Text: %s" %c.permalink)
 
                 c.upvote()
                 Bot_Instance.link_uv_count[subname] += 1 #upvoted a link
@@ -138,8 +144,8 @@ class SubVoteBot(Bot_Instance):
                 #self.save_sub_time_and_data(c) #save latest submission time and data
                 time.sleep(2)
 
-            else:
-                print("IS NOT LINK POST: %s" %c.url)
+            #else:
+                #print("IS NOT LINK POST: %s" %c.url)
 
             #exit---------------------------------//
             if(self.end_now == True):
@@ -153,11 +159,13 @@ class SubVoteBot(Bot_Instance):
         self.latest_sub_visit_time = submission.created_utc
         self.latest_sub_ID = submission.id
 
+        ''' SKIP READING FROM FILE
         #save the latest time----------------//
         fo = open(self.latest_visit_time_txt, "w")  #write the updated index to txt file
         fo.write(str(self.latest_sub_visit_time) + '\n')
         fo.write(str(self.latest_sub_ID))
         fo.close()
+        '''
 
         #save the latest data---------------------------//
         Bot_Instance.CheckData()

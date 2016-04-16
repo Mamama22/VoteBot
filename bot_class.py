@@ -4,6 +4,9 @@ base class for bot instance(is a Thread)
 IMPORTANT: THIS BOT CLASS IS MEANT FOR ONE ACCOUNT WITH MANY INSTANCES, NOT MANY ACCOUNTS
 
 static variables welcome here
+
+CHANGELOG:
+-all reading/saving removed (ctrl-f SKIP READING FROM FILE)
 '''
 
 from __future__ import with_statement # 2.5 only
@@ -70,7 +73,6 @@ class Bot_Instance (threading.Thread):
         #load common static data---------------------//
         Bot_Instance.load_static_data()
 
-
     '''==================================================================//
     Init
     multiple subreddit: "pics+funny+mildlyinteresting"
@@ -126,7 +128,9 @@ class Bot_Instance (threading.Thread):
                     Bot_Instance.link_uv_count[i] = 0
 
             #resafe everything-------------------//
+            ''' SKIP READING FROM FILE
             Bot_Instance.save_static_data()
+            '''
 
     '''==================================================================//
     Load data at init (MUST CALL ONCE)
@@ -154,6 +158,7 @@ class Bot_Instance (threading.Thread):
             Bot_Instance.CheckData()
             return
 
+        ''' SKIP READING FROM FILE
         listOfWords = str.split('\n')
 
         #find if the subreddit is already saved, if not, create new entry------------//
@@ -173,10 +178,10 @@ class Bot_Instance (threading.Thread):
                 print("COMMENT SO FAR: %d" %Bot_Instance.comment_uv_count[sub_name] )
                 print("LINK SO FAR: %d" %Bot_Instance.link_uv_count[sub_name] )
 
-
-        #current day: last index----------------------//
-        Bot_Instance.current_day = int( listOfWords[-1][listOfWords[-1].find(':') + 1:len(listOfWords[-1])] )
-        print("LAST DAY: %d" %Bot_Instance.current_day)
+            #current day: last index----------------------//
+            Bot_Instance.current_day = int( listOfWords[-1][listOfWords[-1].find(':') + 1:len(listOfWords[-1])] )
+            print("LAST DAY: %d" %Bot_Instance.current_day)
+        '''
 
         #close
         fo.close()
@@ -190,6 +195,7 @@ class Bot_Instance (threading.Thread):
     @staticmethod
     def save_static_data():
 
+        ''' SKIP READING FROM FILE
         #save the latest time----------------//
         fo = open(DATA_TXT, "w")  #write the updated index to txt file
 
@@ -202,3 +208,5 @@ class Bot_Instance (threading.Thread):
         #last line will be the day of last online--------------------//
         fo.write("Day: " + str(Bot_Instance.current_day))
         fo.close()
+        '''
+        pass

@@ -2,6 +2,8 @@
 This bot UPVOTES to comments that fits critia
 
 DO NOT CALL SAVE DATA as might cause threads to conflict
+-all reading/saving removed (ctrl-f SKIP READING FROM FILE)
+-latest visit_time is START TIME, no more save last voted
 '''
 
 import praw
@@ -22,9 +24,10 @@ class ReplyBot(Bot_Instance):
         super(ReplyBot, self).__init__(threadID, user_agent, handler)
 
         #variables------------------------------//
-        self.latest_comment_visit_time = 0
+        self.latest_comment_visit_time = time.time()
         self.latest_comment_id = 0
 
+        ''' SKIP READING FROM FILE
         #last visit time---------------------------//
         fo = open(latest_visit_time_txt_comment, "r")
         full = fo.read(100).split('\n')
@@ -33,6 +36,7 @@ class ReplyBot(Bot_Instance):
         self.latest_comment_visit_time = float(full[0])
         self.latest_comment_id = full[1]
         fo.close()
+        '''
 
     '''==================================================================//
     main loop
@@ -92,14 +96,16 @@ class ReplyBot(Bot_Instance):
         self.latest_comment_visit_time = comment.created_utc
         self.latest_comment_id = comment.id
 
+        ''' SKIP READING FROM FILE
         #save the latest time----------------//
         fo = open(latest_visit_time_txt_comment, "w")  #write the updated index to txt file
         fo.write(str(self.latest_comment_visit_time) + '\n')
         fo.write(str(self.latest_comment_id))
         fo.close()
+        '''
 
         #save the latest data---------------------------//
-        #Bot_Instance.CheckData()
+        Bot_Instance.CheckData()
 
         time.sleep(2)
 
