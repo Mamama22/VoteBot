@@ -64,8 +64,6 @@ class IT_HelpdeskBot(Bot_Instance):
     //=================================================================='''
     def Check_Condition(self, comment):
 
-        if(time.time() - self.lastRepliedTime >= 2700):
-            return False
         if(not comment.author): #if deleted
             return False
         if(comment.author == self.r.user): #if own comment
