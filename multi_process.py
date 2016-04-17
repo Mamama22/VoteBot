@@ -55,7 +55,7 @@ def Main_Func():
     #bot_list.append(ReplyBot(1, ua, handler))
     #bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
     #bot_list.append(NLettersBot(3, ua, handler, 7))
-    bot_list.append(SubVoteBot(4, IT_HelpdeskBot, '4f6fxv'))
+    bot_list.append(IT_HelpdeskBot(4, ua, handler, '4f6fxv'))
 
     for i in bot_list:
         try:
