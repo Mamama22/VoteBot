@@ -37,7 +37,7 @@ class IT_HelpdeskBot(Bot_Instance):
         #keep looping my friend.............
         while(True):
 
-            submission = self.r.get_submission(submission_id = self.sub_id)
+            submission = self.r.get_submission(submission_id = self.subID)
 
             submission.replace_more_comments()
             root_comments = submission.comments
@@ -81,6 +81,7 @@ class IT_HelpdeskBot(Bot_Instance):
     //=================================================================='''
     def CarryOut_Action(self, comment):
 
+        print("Replied: %s" %comment.body)
         comment.reply("HI, FUCK U\n\n^^I am a fucking bot")
         time.sleep(2)
 
