@@ -29,6 +29,7 @@ from bot_comment import ReplyBot
 from bot_vote_sub import  SubVoteBot
 from praw.handlers import MultiprocessHandler
 from bot_class import Bot_Instance
+from Reply_to_submission import IT_HelpdeskBot
 
 SUB_VISIT_TXT = "sub_visit_time.txt"
 
@@ -51,9 +52,10 @@ def Main_Func():
     Bot_Instance.Init_Static('fansOfHahahahut3+fansOfHahahahut4') #init once static data-------//
 
     #types of processes to run cocurrently------------------//
-    bot_list.append(ReplyBot(1, ua, handler))
-    bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
+    #bot_list.append(ReplyBot(1, ua, handler))
+    #bot_list.append(SubVoteBot(2, ua, handler, SUB_VISIT_TXT))
     #bot_list.append(NLettersBot(3, ua, handler, 7))
+    bot_list.append(SubVoteBot(4, IT_HelpdeskBot, '4f6fxv'))
 
     for i in bot_list:
         try:
